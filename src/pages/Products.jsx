@@ -6,7 +6,7 @@ const Products = () => {
     const {products} = getRequest("/products")
     console.log(products)
   return (
-    <div>
+    <div className='flex flex-wrap justify-center gap-2 py-5'>
       {products?.map(item => <ProductCard key={item.id} item={item}/>)}
     </div>
   )

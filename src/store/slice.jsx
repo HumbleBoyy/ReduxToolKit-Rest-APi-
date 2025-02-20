@@ -8,7 +8,9 @@ export const LikeSlice = createSlice({
     initialState,
     reducers:{
         saveLikeList:(state,action)=> {
-
+            return{
+                likeList:[...state.likeList, action.payload]
+            }
         },
         removeLikeList:(state, action)=> {
 

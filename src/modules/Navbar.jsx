@@ -6,8 +6,12 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import { Favorite } from '@mui/icons-material';
+import { useSelector } from 'react-redux';
 
 export default function Navbar() {
+    const likeList = useSelector(state => state.likeList)
+    console.log(likeList)
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -22,9 +26,9 @@ export default function Navbar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
+            Products
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Button color="inherit" variant="outlined" size='large' startIcon={<Favorite/>}>{likeList?.length}</Button>
         </Toolbar>
       </AppBar>
     </Box>

@@ -6,19 +6,22 @@ import CardActions from '@mui/material/CardActions';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShareIcon from '@mui/icons-material/Share';
+import { useDispatch } from 'react-redux';
+import { saveLikeList } from '../store/slice';
 
 
 
 export default function ProductCard({item}) {
+    const dispatch = useDispatch()
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345 }} className='object-contain'>
       <CardMedia
+        className='h-[300px]'
         component="img"
-        height="194"
-        image={item.images}
-        alt="Paella dish"
+        height='350px'
+        image={item.images[0]}
+        alt={item.title}
       />
       <CardContent>
       <Typography gutterBottom variant="h5" component="div">
@@ -29,11 +32,8 @@ export default function ProductCard({item}) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
+        <IconButton aria-label="add to favorites" onClick={()=> dispatch(saveLikeList(item))}>
           <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
         </IconButton>
       </CardActions>
     </Card>
