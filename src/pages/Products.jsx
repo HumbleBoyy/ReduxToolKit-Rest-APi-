@@ -4,7 +4,6 @@ import ProductCard from '../components/ProductCard'
 
 const Products = () => {
     const {products} = getRequest("/products")
-    console.log(products)
   return (
     <div className='flex flex-wrap justify-center gap-2 py-5'>
       {products?.map(item => <ProductCard key={item.id} item={item}/>)}
