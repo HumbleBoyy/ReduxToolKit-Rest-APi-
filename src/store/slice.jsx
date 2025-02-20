@@ -13,7 +13,9 @@ export const LikeSlice = createSlice({
             }
         },
         removeLikeList:(state, action)=> {
-
+            return {
+                likeList:[...state.likeList, action.payload]
+            }
         }
     }
 })
