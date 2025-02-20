@@ -1,13 +1,11 @@
 import React from 'react'
-import getRequest from './service/getRequest'
+import Layout from './features'
 
 const App = () => {
-  const products = getRequest("/products")
-  console.log(products)
   return (
-    <div className='flex justify-center h-[100vh] items-center'>
-      App
-    </div>
+    <>
+       <Layout/>
+    </>
   )
 }
 
