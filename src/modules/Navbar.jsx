@@ -12,6 +12,8 @@ import { useSelector } from 'react-redux';
 export default function Navbar() {
     const likeList = useSelector(state => state.likeList)
     console.log(likeList)
+
+    localStorage.setItem('savedLikes', JSON.stringify(likeList))
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
